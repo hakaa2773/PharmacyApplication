@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textSize="40dp"
+        android:id="@+id/tvlink"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/tvlink"
+        android:id="@+id/txtFirstName"
+        android:hint="First Name"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/tvlink"
+        android:id="@+id/txtLastName"
+        android:hint="Last Name"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/txtLastName"
+        android:id="@+id/txtphone"
+        android:textColor="@color/white"
+        android:hint="Phone number"
+        android:textSize="25dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/txtphone"
+        android:id="@+id/txtemail"
+        android:hint="email"
+        android:textColor="@color/white"
+        android:textSize="25dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/txtemail"
+        android:id="@+id/txtpassword"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textSize="25dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnregister"
+        android:layout_marginTop="15dp"
+        android:text="Register"
+        android:layout_below="@+id/txtpassword"
+        android:backgroundTint="@color/black"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer? Login"
+        android:layout_marginTop="15dp"
+        android:id="@+id/tvregister"
+        android:layout_below="@+id/btnregister"
+        android:gravity="center"
+        android:background="@color/yellow"/>
+
+
+</LinearLayout>
