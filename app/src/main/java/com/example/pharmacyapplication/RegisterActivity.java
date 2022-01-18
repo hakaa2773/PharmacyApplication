@@ -20,88 +20,92 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class RegisterActivity extends AppCompatActivity {
-    private EditText txtfirstname,txtlastname, txtphone, txtemail, txtpassword;
+    private EditText txtname,txtphone, txtemail, txtpassword;
     private Button btnregister;
     private TextView tvregister;
-    FirebaseAuth authentication;
-    DatabaseReference db_ref;
+    private TextView tvlink;
+    private static final String TAG ="RegisterActivity";
+    private static final String BASE_URL = "http://192.168.1.100:8080";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        txtfirstname = findViewById(R.id.txtFirstName);
-        txtlastname = findViewById(R.id.txtLastName);
-        txtphone = findViewById(R.id.txtphone);
+
+        txtname = findViewById(R.id.txtCustomerName);
+        txtphone = findViewById(R.id.txtCustomerPhone);
         txtemail = findViewById(R.id.txtemail);
         txtpassword = findViewById(R.id.txtpassword);
         btnregister = findViewById(R.id.btnregister);
         tvregister = findViewById(R.id.tvregister);
-        authentication = FirebaseAuth.getInstance();
-        db_ref = FirebaseDatabase.getInstance().getReference();
+        tvlink = findViewById(R.id.tvregister);
 
-        tvregister.setOnClickListener(new View.OnClickListener() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        IJSONPlaceHolder ijsonPlaceHolder = retrofit.create(IJSONPlaceHolder.class);
+        tvlink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(RegisterActivity.this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                Intent int_reg = new Intent(RegisterActivity.this,LoginActivity.class);
+                startActivity(int_reg);
                 finish();
-
             }
         });
+
         btnregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String firstname, lastname, phone, email, password, address;
-                firstname = txtfirstname.getText().toString();
-                lastname = txtlastname.getText().toString();
+                String name,phone,email,password;
+                name = txtname.getText().toString();
                 phone = txtphone.getText().toString();
                 email = txtemail.getText().toString();
                 password = txtpassword.getText().toString();
 
-                if (firstname.isEmpty() || lastname.isEmpty() || phone.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(RegisterActivity.this, "please fill all the text fields", Toast.LENGTH_SHORT).show();
-                } else {
-                    createUser(email, password, firstname, lastname, phone);
+                if (name.equals("")||phone.equals("")||email.equals("")||password.equals("")){
+                    Toast.makeText(RegisterActivity.this, "Fill all the information", Toast.LENGTH_SHORT).show();
+                    return;
                 }
-            }
+                String hashpassword= BCrypt.withDefaults().hashToString(12,password.toCharArray());
 
-        });
+                CustomerLogin customerLogin = new CustomerLogin(email,hashpassword);
+                Customer customer = new Customer(name,phone,email,customerLogin);
 
-    }
-
-            private void createUser(String email, String password, String firstname, String lastname, String phone) {
-                authentication.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                Call<ResponseBody> call = ijsonPlaceHolder.savecustomer(customer);
+                call.enqueue(new Callback<ResponseBody>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            Log.i("RegisterActivity", "Successfully Registered");
-                            String custID = authentication.getCurrentUser().getUid();
-                            createcustomer(custID, firstname,lastname, email, phone);
-                        }else {
-                            Toast.makeText(RegisterActivity.this, "Registration Failure", Toast.LENGTH_SHORT).show();
-                            Exception e = task.getException();
-                            Log.e("RegisterActivity", e.getMessage());
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (!response.isSuccessful()){
+                            Toast.makeText(RegisterActivity.this, "Register Fail :"+response.code(), Toast.LENGTH_SHORT).show();
+                            Log.e(TAG,"Response Error :"+response.code());
+                            return;
                         }
+                        Toast.makeText(RegisterActivity.this, "Successfully Registered", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
 
                     }
-                }).addOnFailureListener(new OnFailureListener() {
+
                     @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(RegisterActivity.this, "Registration Fail Try Again", Toast.LENGTH_SHORT).show();
-                        Log.e("RegisterActivity", e.getMessage());
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Toast.makeText(RegisterActivity.this, "Register Fail :" +t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.e(TAG,t.getMessage());
 
                     }
                 });
             }
-
-
-    private void createcustomer(String custID, String firstname, String lastname, String email, String phone) {
-        db_ref = FirebaseDatabase.getInstance().getReference();
-        Customer customer = new Customer(custID, firstname,lastname, email, phone);
-        db_ref.child("customer").child(custID).setValue(customer);
-        Toast.makeText(this, "added to the database ", Toast.LENGTH_LONG).show();
-        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-        finish();
+        });
     }
+
+
+
 }

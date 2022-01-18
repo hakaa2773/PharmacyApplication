@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="First Name"
+            android:text="Name"
             android:textSize="15sp"
             android:layout_weight="7"/>
         <EditText
@@ -39,60 +39,6 @@
             android:textColor="@color/white"
             android:textSize="25dp"
             android:id="@+id/pro_fistname"
-            android:inputType="text"
-            android:layout_weight="3"/>
-
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="10"
-        android:gravity="left"
-        android:layout_marginTop="10dp">
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Last Name"
-            android:textSize="15sp"
-            android:layout_weight="7"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="25dp"
-            android:id="@+id/pro_lastname"
-            android:inputType="text"
-            android:layout_weight="3"/>
-
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="10"
-        android:gravity="left"
-        android:layout_marginTop="10dp">
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Phone"
-            android:textSize="15sp"
-            android:layout_weight="7"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="25dp"
-            android:id="@+id/pro_phone"
             android:inputType="text"
             android:layout_weight="3"/>
 
@@ -126,6 +72,8 @@
 
 
     </LinearLayout>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -138,7 +86,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Address"
+            android:text="Phone"
             android:textSize="15sp"
             android:layout_weight="7"/>
         <EditText
@@ -146,13 +94,15 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="25dp"
-            android:id="@+id/pro_address"
+            android:id="@+id/pro_phone"
             android:inputType="text"
             android:layout_weight="3"/>
 
 
 
     </LinearLayout>
+
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

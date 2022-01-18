@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/drawable/ic_baseline_add_card_24.xml" value="0.3026041666666667" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.14074074074074075" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/drawable/meth_bg.xml" value="0.2859375" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/drawable/meth_bg2.xml" value="0.2859375" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/layout/activity_all_drugs.xml" value="0.3625" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/layout/activity_drug.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/layout/activity_example.xml" value="0.33" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/layout/activity_main.xml" value="0.29041095890410956" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/layout/activity_prescreption.xml" value="0.2520833333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/layout/activity_prescription.xml" value="0.3484375" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/layout/activity_register.xml" value="0.25287356321839083" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/layout/activity_search_drug.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/layout/activity_search_prescription.xml" value="0.33" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/layout/drugdetails.xml" value="0.33" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/layout/example_user.xml" value="0.22" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/layout/fragment_search.xml" value="0.5" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/menu/main_menu.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PharmacyApplication/app/src/main/res/menu/slider_menu.xml" value="0.21458333333333332" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

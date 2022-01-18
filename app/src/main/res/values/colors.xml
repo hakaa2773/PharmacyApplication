@@ -9,5 +9,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#ebe834</color>
     <color name="blue">#34abeb</color>
+    <color name="purple">#e303fc</color>
+    <color name="darkyellow">#fca503</color>
+    <color name="green"> #52fc03</color>
+
+
+
 
 </resources>

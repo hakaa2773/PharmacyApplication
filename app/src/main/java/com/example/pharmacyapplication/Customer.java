@@ -1,69 +1,59 @@
 package com.example.pharmacyapplication;
 
 public class Customer {
-    private String custid;
-    private String custfirstname;
-    private String custlastname;
-    private String custphone;
-    private String custemail;
-    private String custaddress;
+   private Integer id;
+   private String name;
+   private String email;
+   private String phone;
+   private CustomerLogin customerLogin;
 
     public Customer() {
     }
 
-    public Customer(String custid, String custfirstname, String custlastname, String custphone, String custemail) {
-        this.custid = custid;
-        this.custfirstname = custfirstname;
-        this.custlastname = custlastname;
-        this.custphone = custphone;
-        this.custemail = custemail;
+    public Customer(String name , String phone, String email, CustomerLogin customerLogin) {
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.customerLogin = customerLogin;
     }
 
-    public String getCustid() {
-        return custid;
+    public CustomerLogin getCustomerLogin() {
+        return customerLogin;
     }
 
-    public void setCustid(String custid) {
-        this.custid = custid;
+    public void setCustomerLogin(CustomerLogin customerLogin) {
+        this.customerLogin = customerLogin;
     }
 
-    public String getCustfirstname() {
-        return custfirstname;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCustfirstname(String custfirstname) {
-        this.custfirstname = custfirstname;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getCustlastname() {
-        return custlastname;
+    public String getName() {
+        return name;
     }
 
-    public void setCustlastname(String custlastname) {
-        this.custlastname = custlastname;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCustphone() {
-        return custphone;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCustphone(String custphone) {
-        this.custphone = custphone;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getCustemail() {
-        return custemail;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setCustemail(String custemail) {
-        this.custemail = custemail;
-    }
-
-    public String getCustaddress() {
-        return custaddress;
-    }
-
-    public void setCustaddress(String custaddress) {
-        this.custaddress = custaddress;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

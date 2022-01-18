@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,10 +23,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FragmentTransaction frag_tra;
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
+    private String  mail;
+
+//    Intent intent = getIntent();
+//    String mail = intent.getStringExtra("email");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+        mail = intent.getStringExtra("email");
+        System.out.println(mail);
+
         nav = findViewById(R.id.navview);
         drawerLayout = findViewById(R.id.navdrawer);
         nav.bringToFront();
@@ -35,14 +45,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         loadFragment(new HomeFragment());
         nav.setNavigationItemSelectedListener(this);
+
+        Toast.makeText(this, mail, Toast.LENGTH_LONG).show();
     }
 
-    private void loadFragment(Fragment fragment) {
-        frag_man = getSupportFragmentManager();
-        frag_tra = frag_man.beginTransaction();
-        frag_tra.replace(R.id.frag_container,fragment);
-        frag_tra.commit();
-    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -53,20 +60,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_search:
 
-                loadFragment(new SearchFragment());
+                //loadFragment(new SearchFragment());
+                startActivity(new Intent(MainActivity.this, SearchDrugActivity.class));
+
+                break;
+
+            case R.id.nav_add_prescription:
+
+                startActivity(new Intent(MainActivity.this, PrescreptionActivity.class));
 
                 break;
 
             case R.id.nav_profile:
-                if (FirebaseAuth.getInstance().getCurrentUser()==null){
-                    startActivity(new Intent(MainActivity.this,LoginActivity.class));
-                    finish();
-                }
-                else {
-                    loadFragment(new ProfileFragment());
-                }
+
+                   loadFragment(new ProfileFragment(mail));
                 break;
-        }
+                }
+
+
+
         return false;
+    }
+    private void loadFragment(Fragment fragment) {
+        frag_man = getSupportFragmentManager();
+        frag_tra = frag_man.beginTransaction();
+        frag_tra.replace(R.id.frag_container,fragment);
+        frag_tra.commit();
     }
 }

@@ -14,6 +14,16 @@
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_baseline_person_24"
             android:title="Account" />
+        <item
+            android:id="@+id/nav_add_prescription"
+            android:icon="@drawable/ic_baseline_add_card_24"
+            android:title="ADD Prescription" />
+        <item
+            android:id="@+id/nav_Signout"
+            android:icon="@drawable/ic_baseline_arrow_back_24"
+            android:title="Signout" />
+
+
     </group>
 
 </menu>

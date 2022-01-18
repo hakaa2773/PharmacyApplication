@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="Customer Register"
         android:textSize="40dp"
         android:id="@+id/tvlink"/>
     <EditText
@@ -21,17 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/tvlink"
-        android:id="@+id/txtFirstName"
-        android:hint="First Name"
-        android:textColor="@color/white"
-        android:textSize="25dp" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/tvlink"
-        android:id="@+id/txtLastName"
-        android:hint="Last Name"
+        android:id="@+id/txtCustomerName"
+        android:hint="Customer Name"
         android:textColor="@color/white"
         android:textSize="25dp" />
 
@@ -39,8 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_below="@+id/txtLastName"
-        android:id="@+id/txtphone"
+        android:layout_below="@+id/txtCustomerPhone"
+        android:id="@+id/txtCustomerPhone"
         android:textColor="@color/white"
         android:hint="Phone number"
         android:textSize="25dp"/>
@@ -49,9 +40,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_below="@+id/txtphone"
+        android:layout_below="@+id/txtCustomerEmail"
         android:id="@+id/txtemail"
-        android:hint="email"
+        android:hint="Email"
         android:textColor="@color/white"
         android:textSize="25dp"/>
 
@@ -59,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_below="@+id/txtemail"
+        android:layout_below="@+id/txtpassword"
         android:id="@+id/txtpassword"
         android:hint="password"
         android:inputType="textPassword"
